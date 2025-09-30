@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- Encabezado -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zer0 X</title>
+    <link rel="stylesheet" href="desing.css">
+</head>
+
+ <!-- Cuerpo -->
+<body>
+
+  <header><h1>Zer0 X</h1></header>
+
+ <nav>
+    <h1></h1>
+    <ul class="nav-link" id="nav-link">
+      <li><button href="javascript:document.location.reload();">INICIO</button></li>
+      <li><button href="#">DROGAS</button></li>
+      <li><button href="#">PREVENCION</button></li>
+      <li><button href="#" onclick="abrirModal(); return false;">CONTACTOS</button></li>
+    </ul>
+    <div class="hamburguer" id="hamburguer">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      
+    </div>
+  </nav> 
+  
+<!-- Contenedor del modal -->
+<div id="modalGeneralContainer" class="modal-container" style="display: none;">
+  <div class="modal-content" id="modalContent">
+  </div>
+</div>
+
+<!-- Template del modal -->
+<template id="modalGeneralTemplate">
+  <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+  <h2>Soporte</h2>
+  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
+  
+  <div class="producto-enlaces">
+    <a href="mailto:lewisreyes001@icloud.com" target="_blank" class="input-link">Correo de contacto</a>
+    <a href="https://wa.me/529221601709" target="_blank" class="input-link">Enviar mensaje por WhatsApp</a>
+    <a href="tel:+521234567890" class="input-link">Llamada de ayuda</a>
+  </div>
+</template>
+
+
+  <br>
+</template>
+
+<script src="funcionality.js"></script> 
+</body>
+
+ <!--pie de pagina -->
+<footer>
+ © 2025 Tienda promocional digital OxyMarket. Todos los derechos reservados a ErizoCompany SA de CV.
+</footer>
+</html>
