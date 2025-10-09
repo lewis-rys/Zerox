@@ -4,23 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Nombre inferior del navegador de la pagina -->
     <title>Zer0 X</title>
+    <!-- URL de CSS (no editar) -->
     <link rel="stylesheet" href="desing.css">
 </head>
 
  <!-- Cuerpo -->
-<body>
-
+<body style="background-color: rgb(255, 255, 255);">
+  <!-- Titulo principal de la pagina -->
   <header><h1>Zer0 X</h1></header>
 
  <nav>
+    <!-- Menu universal -->
     <h1></h1>
     <ul class="nav-link" id="nav-link">
-      <li><button href="javascript:document.location.reload();">INICIO</button></li>
-      <li><button href="#">DROGAS</button></li>
-      <li><button href="#">PREVENCION</button></li>
-      <li><button href="#" onclick="abrirModal(); return false;">CONTACTOS</button></li>
+      <li><button href="javascript:document.location.reload();" onclick="abrirModalinicio(); return false;">INICIO</button></li>
+      <li><button href="#" onclick="abrirModaldrogas(); return false;">DROGAS</button></li>
+      <li><button href="#" onclick="abrirModalvideo(); return false;">VIDEOS</button></li>
+      <li><button href="#" onclick="abrirModalcontacto(); return false;">CONTACTOS</button></li>
     </ul>
+    <!-- Diagonales del menu desplegable  -->
     <div class="hamburguer" id="hamburguer">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -29,16 +33,18 @@
     </div>
   </nav> 
   
-<!-- Contenedor del modal -->
+<!-- Contenedor principal del modal -->
+<center>
 <div id="modalGeneralContainer" class="modal-container" style="display: none;">
   <div class="modal-content" id="modalContent">
   </div>
 </div>
+</center>
 
-<!-- Template del modal -->
-<template id="modalGeneralTemplate">
-  <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-  <h2>Soporte</h2>
+<!-- Modal seccion contactos -->
+<template id="modalGeneralcontacto">
+  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
+  <h2>Contacto</h2>
   <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
   
   <div class="producto-enlaces">
@@ -48,15 +54,49 @@
   </div>
 </template>
 
+<!-- Modal seccion videos -->
+<template id="modalGeneralvideo">
+  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
+  <h2>Video</h2>
+  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
+  </div>
+  <video src="videos/adiccionperu_1758578848581.mp4" controls class="modal-videos"></video>
+  <video src="videos/alexelpro130_1759034020987.mp4" controls class="modal-videos"></video>
+  <video src="videos/aqueldia7_1758417083135.mp4" controls class="modal-videos"></video>
+  <video src="videos/drogas.en.los.ado_1758578516936.mp4" controls class="modal-videos"></video>
+  <video src="videos/patronatodesantaana_1758578384724.mp4" controls class="modal-videos"></video>
+  <video src="videos/situacciones_1759033794680.mp4" controls class="modal-videos"></video>
+  <video src="videos/tashab.xx_1758417222100.mp4" controls class="modal-videos"></video>
+   
+</template>
+
+<!-- Modal seccion drogas -->
+<template id="modalGeneraldrogas">
+  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
+  <h2>Drogas</h2>
+  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
+  </div>
+</template>
+
+<!-- Modal seccion inicio -->
+<template id="modalGeneralinicio">
+  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
+  <h2>Inicio</h2>
+  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
+  </div>
+</template>
 
   <br>
 </template>
 
+<!-- URL de funcion a javascrip (no editar) -->
 <script src="funcionality.js"></script> 
+
 </body>
 
  <!--pie de pagina -->
 <footer>
  © 2025 Tienda promocional digital OxyMarket. Todos los derechos reservados a ErizoCompany SA de CV.
 </footer>
+
 </html>
