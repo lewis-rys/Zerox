@@ -1,102 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
- <!-- Encabezado -->
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Nombre inferior del navegador de la pagina -->
-    <title>Zer0 X</title>
-    <!-- URL de CSS (no editar) -->
-    <link rel="stylesheet" href="desing.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zer0 X</title>
+  <link rel="stylesheet" href="desing.css" />
 </head>
+<body>
 
- <!-- Cuerpo -->
-<body style="background-color: rgb(255, 255, 255);">
-  <!-- Titulo principal de la pagina -->
-  <header><h1>Zer0 X</h1></header>
+  <header>
+  <h1 class="titulo">Zer0 X</h1>
+  <img src="image/logox1.png" alt="Logo" class="logo-header">
+</header>
 
- <nav>
-    <!-- Menu universal -->
-    <h1></h1>
+
+  <!-- Navegación -->
+  <nav>
     <ul class="nav-link" id="nav-link">
-      <li><button href="javascript:document.location.reload();" onclick="abrirModalinicio(); return false;">INICIO</button></li>
-      <li><button href="#" onclick="abrirModaldrogas(); return false;">DROGAS</button></li>
-      <li><button href="#" onclick="abrirModalvideo(); return false;">VIDEOS</button></li>
-      <li><button href="#" onclick="abrirModalcontacto(); return false;">CONTACTOS</button></li>
+      <li><button onclick="abrirModalinicio(); return false;">INICIO</button></li>
+      <li><button onclick="abrirModaldrogas(); return false;">CHATBOT</button></li>
+      <li><button onclick="abrirModalvideo(); return false;">VIDEOS</button></li>
+      <li><button onclick="abrirModalcontacto(); return false;">CONTACTOS</button></li>
     </ul>
-    <!-- Diagonales del menu desplegable  -->
+
     <div class="hamburguer" id="hamburguer">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
-      
     </div>
-  </nav> 
-  
-<!-- Contenedor principal del modal -->
-<center>
-<div id="modalGeneralContainer" class="modal-container" style="display: none;">
-  <div class="modal-content" id="modalContent">
+  </nav>
+
+  <!-- Contenedor del modal (¡¡sin style inline!!) -->
+  <div id="modalGeneralContainer" class="modal-container" aria-hidden="true">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- Templates -->
+  <template id="modalGeneralinicio">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Inicio</h2>
+      <p>Bienvenido a <strong>Zer0 X</strong>, plataforma de información educativa.</p>
+    </div>
+  </template>
+
+<template id="modalGeneraldrogas">
+  <div class="modal-body chatbot-modal">
+    <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+    <h2>Drogas - Chatbot</h2>
+    <p>Pregunta cualquier cosa sobre drogas y prevención:</p>
+
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <div class="chat-input-container">
+      <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." />
+      <button id="sendBtn" onclick="enviarMensaje()">Enviar</button>
+    </div>
+    
+    <script>
+        console.log('🎯 Script dentro del template ejecutado');
+        // Esperar a que el DOM del modal esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📝 DOM del modal listo');
+            setTimeout(() => {
+                console.log('🔧 Inicializando chatbot desde template...');
+                if (window.inicializarChatbot) {
+                    window.inicializarChatbot();
+                } else {
+                    console.error('❌ inicializarChatbot no disponible');
+                    alert('Error: chatbot.js no está cargado correctamente');
+                }
+            }, 100);
+        });
+    </script>
+  </div>
+</template>
+
+
+  <template id="modalGeneralvideo">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Videos</h2>
+      <div class="video-grid">
+  <div class="video-item">
+    <video src="videos/adiccionperu_1758578848581.mp4" controls></video>
+    <p class="video-desc">Impacto de la adicción en Perú</p>
+  </div>
+
+  <div class="video-item">
+    <video src="videos/alexelpro130_1759034020987.mp4" controls></video>
+    <p class="video-desc">Testimonio de Alex</p>
+  </div>
+
+  <div class="video-item">
+    <video src="videos/aqueldia7_1758417083135.mp4" controls></video>
+    <p class="video-desc">Experiencias de adolescentes</p>
+  </div>
+
+  <div class="video-item">
+    <video src="videos/drogas.en.los.ado_1758578516936.mp4" controls></video>
+    <p class="video-desc">Situación de drogas en adolescentes</p>
+  </div>
+
+  <div class="video-item">
+    <video src="videos/patronatodesantaana_1758578384724.mp4" controls></video>
+    <p class="video-desc">Patronato de Santa Ana</p>
+  </div>
+
+  <div class="video-item">
+    <video src="videos/situacciones_1759033794680.mp4" controls></video>
+    <p class="video-desc">Situaciones comunes</p>
+  </div>
+
+  <div class="video-item">
+    <video src="videos/tashab.xx_1758417222100.mp4" controls></video>
+    <p class="video-desc">Tasha B. experiencia</p>
   </div>
 </div>
-</center>
 
-<!-- Modal seccion contactos -->
-<template id="modalGeneralcontacto">
-  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
-  <h2>Contacto</h2>
-  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
-  
-  <div class="producto-enlaces">
-    <a href="mailto:lewisreyes001@icloud.com" target="_blank" class="input-link">Correo de contacto</a>
-    <a href="https://wa.me/529221601709" target="_blank" class="input-link">Enviar mensaje por WhatsApp</a>
-    <a href="tel:+521234567890" class="input-link">Llamada de ayuda</a>
-  </div>
-</template>
+    </div>
+  </template>
 
-<!-- Modal seccion videos -->
-<template id="modalGeneralvideo">
-  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
-  <h2>Video</h2>
-  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
-  </div>
-  <video src="videos/adiccionperu_1758578848581.mp4" controls class="modal-videos"></video>
-  <video src="videos/alexelpro130_1759034020987.mp4" controls class="modal-videos"></video>
-  <video src="videos/aqueldia7_1758417083135.mp4" controls class="modal-videos"></video>
-  <video src="videos/drogas.en.los.ado_1758578516936.mp4" controls class="modal-videos"></video>
-  <video src="videos/patronatodesantaana_1758578384724.mp4" controls class="modal-videos"></video>
-  <video src="videos/situacciones_1759033794680.mp4" controls class="modal-videos"></video>
-  <video src="videos/tashab.xx_1758417222100.mp4" controls class="modal-videos"></video>
-   
-</template>
+  <template id="modalGeneralcontacto">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Contacto</h2>
+      <p>Selecciona un método de contacto.</p>
+      <div class="producto-enlaces">
+        <a href="mailto:lewisreyes001@icloud.com" class="input-link">Correo</a>
+        <a href="https://wa.me/529221601709" target="_blank" class="input-link">WhatsApp</a>
+      </div>
+    </div>
+  </template>
 
-<!-- Modal seccion drogas -->
-<template id="modalGeneraldrogas">
-  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
-  <h2>Drogas</h2>
-  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
-  </div>
-</template>
+  <!-- Pie -->
+  <footer>© 2025 Tienda promocional digital OxyMarket.</footer>
 
-<!-- Modal seccion inicio -->
-<template id="modalGeneralinicio">
-  <button class="cerrar-btn" onclick="cerrarModalGeneral()"><a>x</a></button>
-  <h2>Inicio</h2>
-  <p>Selecciona un método de contacto para ayudarte a resolver los inconvenientes de la plataforma. Recomendamos tener evidencias en cualquier método que seleccione.</p>
-  </div>
-</template>
-
-  <br>
-</template>
-
-<!-- URL de funcion a javascrip (no editar) -->
-<script src="funcionality.js"></script> 
+ <!-- Scripts del frontend -->
+<script src="funcionality.js"></script>
+<script src="chatbot.js" type="module"></script>
 
 </body>
-
- <!--pie de pagina -->
-<footer>
- © 2025 Tienda promocional digital OxyMarket. Todos los derechos reservados a ErizoCompany SA de CV.
-</footer>
-
 </html>
+
+
+
