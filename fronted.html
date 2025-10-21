@@ -40,7 +40,31 @@
     <div class="modal-body">
       <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
       <h2>Inicio</h2>
-      <p>Bienvenido a <strong>Zer0 X</strong>, plataforma de información educativa.</p>
+      <p>Bienvenido a ZeroX</p>
+
+<p>Nuestra aplicación web está diseñada con un propósito claro: informar, orientar y 
+apoyar a quienes buscan conocer más sobre las drogas y sus efectos
+. En este espacio encontrarás información confiable 
+y accesible sobre qué son las drogas, cómo afectan al cuerpo y la mente, 
+y cuáles son las consecuencias de su consumo.</p>
+
+
+  <p>Además, contamos con una sección de contactos de ayuda, 
+    donde podrás acceder a instituciones y 
+  líneas de apoyo especializadas que brindan atención profesional, 
+  confidencial y gratuita.</p>
+
+ <img src="image/image.png" 
+ alt="Descripción de la imagen"
+ class="imagen-modal">
+
+  <p>Y si necesitas resolver alguna duda de forma directa, 
+  nuestro chat interactivo te permitirá hacer preguntas y 
+  recibir respuestas personalizadas en un entorno seguro y respetuoso.
+  Informarte es cuidarte. Nuestra misión es ofrecerte un espacio digital donde 
+  la información y la orientación se unan para promover el bienestar y 
+  la toma de decisiones conscientes.</p>
+
     </div>
   </template>
 
@@ -77,51 +101,79 @@
 </template>
 
 
-  <template id="modalGeneralvideo">
-    <div class="modal-body">
-      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-      <h2>Videos</h2>
-      <div class="video-grid">
-  <div class="video-item">
-    <video src="videos/adiccionperu_1758578848581.mp4" controls></video>
-    <p class="video-desc">Impacto de la adicción en Perú</p>
+<template id="modalGeneralvideo">
+  <div class="modal-body">
+    <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+    <h2>Videos</h2>
+
+    <div class="video-grid">
+
+      <div class="video-item">
+        <video src="videos/adiccionperu_1758578848581.mp4" controls></video>
+        <p class="video-desc">Impacto de la adicción en Perú</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/alexelpro130_1759034020987.mp4" controls></video>
+        <p class="video-desc">Testimonio de Alex</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/aqueldia7_1758417083135.mp4" controls></video>
+        <p class="video-desc">Experiencias de adolescentes</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/drogas.en.los.ado_1758578516936.mp4" controls></video>
+        <p class="video-desc">Situación de drogas en adolescentes</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/patronatodesantaana_1758578384724.mp4" controls></video>
+        <p class="video-desc">Patronato de Santa Ana</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/situacciones_1759033794680.mp4" controls></video>
+        <p class="video-desc">Situaciones comunes</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/tashab.xx_1758417222100.mp4" controls></video>
+        <p class="video-desc">Tasha B. experiencia</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/siteorecen drogas.mp4" controls></video>
+        <p class="video-desc">Musical</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/sustanciasmichis.mp4" controls></video>
+        <p class="video-desc">Consumo de sustancias explicado con michis</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/nicotina.mp4" controls></video>
+        <p class="video-desc">Nicotina</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/fentanilo.mp4" controls></video>
+        <p class="video-desc">Fentanilo</p>
+      </div>
+
+      <div class="video-item">
+        <video src="videos/alcohol.mp4" controls></video>
+        <p class="video-desc">Alcohol</p>
+      </div>
+
+    </div> <!-- Cierre de video-grid -->
+
   </div>
-
-  <div class="video-item">
-    <video src="videos/alexelpro130_1759034020987.mp4" controls></video>
-    <p class="video-desc">Testimonio de Alex</p>
-  </div>
-
-  <div class="video-item">
-    <video src="videos/aqueldia7_1758417083135.mp4" controls></video>
-    <p class="video-desc">Experiencias de adolescentes</p>
-  </div>
-
-  <div class="video-item">
-    <video src="videos/drogas.en.los.ado_1758578516936.mp4" controls></video>
-    <p class="video-desc">Situación de drogas en adolescentes</p>
-  </div>
-
-  <div class="video-item">
-    <video src="videos/patronatodesantaana_1758578384724.mp4" controls></video>
-    <p class="video-desc">Patronato de Santa Ana</p>
-  </div>
-
-  <div class="video-item">
-    <video src="videos/situacciones_1759033794680.mp4" controls></video>
-    <p class="video-desc">Situaciones comunes</p>
-  </div>
-
-  <div class="video-item">
-    <video src="videos/tashab.xx_1758417222100.mp4" controls></video>
-    <p class="video-desc">Tasha B. experiencia</p>
-  </div>
-</div>
+</template>
 
 
-
-    </div>
-  </template>
 
   <template id="modalGeneralcontacto">
     <div class="modal-body">
@@ -136,6 +188,173 @@
     </div> 
   </template>
 
+
+
+<div class="contenedor-botones">
+   <button onclick="abrirModalfentanilo(); return false;">FENTANILO</button>
+   <button onclick="abrirModalcannabis(); return false;">CANNABIS</button>
+   <button onclick="abrirModalcocaina(); return false;">COCAINA</button>
+   <button onclick="abrirModalnicotina(); return false;">NICOTINA</button>
+   <button onclick="abrirModalalcohol(); return false;">ALCOHOL</button>
+   <button onclick="abrirModalxanax(); return false;">XANAX</button>
+  
+
+  <template id="modalGeneralfentanilo">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Fentanilo</h2>
+      <p>Fentanilo: El Asesino Invisible ☠</p>
+
+      <p>· La Verdad Sin Filtros: Es un opioide sintético 50 veces más potente que la heroína. 
+      Una cantidad equivalente a 4-5 granos de sal puede ser mortal.</p>
+      <p>· ¿Por qué es un riesgo REAL para ti? No es una droga que la gente suele buscar. 
+      Está apareciendo en pastillas falsas que se venden en redes sociales como si fueran Xanax, 
+      Adderall o éxtasis, y en drogas como la cocaína o la metanfetamina. Tú puedes pensar 
+      que estás tomando una cosa, pero si tiene fentanilo, puedes morir en minutos.
+      <p>· El Impacto en Tu Cuerpo: Deprime el sistema respiratorio hasta que dejas de respirar. 
+      La muerte por sobredosis es rápida.</p>
+      <p>· La Elección Inteligente:<p>
+      <p>· NUNCA tomes pastillas que no vengan de una farmacia con receta médica para ti.</p>
+      <p>· Si estás en un entorno donde alguien podría consumir, infórmate sobre el Naloxone 
+      (Narcan), un medicamento que puede revertir una sobredosis por opioides.</p>
+  
+      <img src="image/fentanilo.jpeg" 
+      alt="Descripción de la imagen"
+      class="imagen-modal">
+
+  </div>
+  </template>
+
+  <template id="modalGeneralcannabis">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Cannabis</h2>
+      <p>Cannabis (Marihuana): No Es Sólo "Una Plantita" 🌿</p>
+
+      <p>· La Verdad Sin Filtros: Si bien es menos riesgosa que otras drogas, no es inocua, 
+      especialmente para un cerebro adolescente.</p>
+      <p>· El Impacto en Tu Mente y Tu Futuro:</p>
+      <p> · Memoria y Aprendizaje: Dificulta la concentración y la retención de información.</p>
+      <p>Puede bajar tu rendimiento escolar y afectar tu capacidad para alcanzar tus metas.</p>
+      <p>· Salud Mental: Puede aumentar el riesgo de sufrir ansiedad, paranoia y desencadenar 
+      episodios psicóticos en quienes son vulnerables.</p>
+      <p>· Motivación: Puede quitarte las ganas de hacer cosas (síndrome amotivacional).</p>
+      <p>· La Elección Inteligente: Si vas a consumir, espera. Cada año que retrasas el consumo 
+      en la adolescencia reduce el daño potencial en tu cerebro en desarrollo.</p>
+    
+      <img src="image/cannabis.jpeg" 
+      alt="Descripción de la imagen"
+      class="imagen-modal">
+  </div>
+  </template>
+
+  <template id="modalGeneralcocaina">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Cocaina</h2>
+      <p>Cocaína: La Mentira de la Energía Rápida ❄</p>
+
+      <p>· La Verdad Sin Filtros: Te da una subida de energía y confianza intensa, pero falsa y muy corta.</p>
+      <p>El bajón es brutal: ansiedad, irritabilidad y depresión.</p>
+      <p>· El Impacto en Tu Cuerpo y Tu Vida:</p>
+      <p>· Adicción: Es extremadamente adictiva. Dejas de usarla para sentirte bien y la usas para dejar de sentirte mal.</p>
+      <p>· Corazón: Acelera tu corazón hasta niveles peligrosos, pudiendo causar infartos en jóvenes incluso la primera vez.</p>
+      <p>· Dinero y Relaciones: Es carísima y suele llevar a comportamientos compulsivos y conflictos con familia y amigos.</p>
+      <p>· La Elección Inteligente: Pregúntate: ¿realmente necesito una sustancia para divertirme o conectar con los demás? 
+      La energía real viene del descanso, la buena alimentación y hacer cosas que te apasionen.</p>
+    
+      <img src="image/cocaina.jpeg" 
+      alt="Descripción de la imagen"
+      class="imagen-modal">
+
+    </div>
+  </template>
+
+
+  <template id="modalGeneralnicotina">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Nicotina</h2>
+      <p>Nicotina (Vapeadores): El Gusano en la Manzana 🍎
+
+      <p>· La Verdad Sin Filtros: Los vapeadores no son "vapor de agua". Contienen nicotina, 
+      una de las sustancias más adictivas que existen, además de sustancias químicas 
+      dañinas para tus pulmones.</p>
+      <p>· El Impacto en Tu Cuerpo:</p>
+      <p>· Cerebro: La nicotina altera el desarrollo de los circuitos cerebrales que controlan 
+      la atención y el aprendizaje.</p>
+      <p>· Pulmones: Puede causar daño pulmonar (conocido como "pulmón de palomitas de maíz").</p>
+      <p>· Bolsillo: Es un gasto constante por una adicción que cuesta mucho dejar.</p>
+      <p>· La Elección Inteligente: No dejes que el marketing te engañe. La "nube de sabor"
+      es una trampa de adicción. Respirar aire limpio es siempre más cool.</p>
+
+
+      <img src="image/nicotina.jpeg" 
+      alt="Descripción de la imagen"
+      class="imagen-modal">
+
+    </div>
+  </template>
+
+  <template id="modalGeneralalcohol">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>ALCOHOL</h2>
+      <p>Alcohol: El Desinhibidor Peligroso 🍺
+
+      <p>· La Verdad Sin Filtros: Es la droga más normalizada, pero eso no la hace segura. 
+      Afecta tu juicio desde el primer trago.</p>
+      <p>· El Impacto en Ti:</p>
+      <p>· Decisiones: Bajo sus efectos, es más probable que hagas cosas de las que te 
+      arrepientas: tener sexo sin protección, subir fotos/videos comprometedores, conducir ebrio 
+      o sufrir accidentes.</p>
+      <p>· Cerebro: Mata neuronas y afecta la memoria a largo plazo.</p>
+      <p>· Salud Mental: Empeora la ansiedad y la depresión a largo plazo.</p>
+      <p>· La Elección Inteligente:</p>
+      <p>· Si bebes, hazlo con gente de confianza, come antes y durante, alterna con agua 
+      y NUNCA manejes. Designa a un conductor sobrio.</p>
+      <p>· La mejor opción: disfrutar de un buen momento sin necesidad de alcohol es
+      un superpoder.</p>
+
+
+      <img src="image/alcohol.jpeg" 
+      alt="Descripción de la imagen"
+      class="imagen-modal">
+
+    </div>
+  </template>
+
+  <template id="modalGeneralxanax">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Xanax</h2>
+      <p>Xanax (Alprazolam): La Pastilla para "Desconectar" que Enciende una Trampa 💊</p>
+
+      <p>· La Verdad Sin Filtros: Es un medicamento para la ansiedad severa. Usarlo sin receta 
+      médica es como usar una bazuca para matar un mosquito.</p>
+      <p>· El Impacto en Tu Mente:</p>
+      <p>· Adicción Física: Tu cuerpo se acostumbra rápidamente. Si dejas de tomarlo, sufrirás 
+      un síndrome de abstinencia que puede ser mortal, con ansiedad extrema, insomnio y convulsiones.</p>
+      <p>· Efectos: Te quita toda la motivación, te deja como un "zombi" y nubla tu memoria.</p>
+      <p>· Combinación Mortal: Mezclarlo con alcohol es una de las combinaciones más peligrosas.
+       Deprime tanto tu sistema respiratorio que puedes dejar de respirar y morir.</p>
+      <p>· La Elección Inteligente: Si sientes que la ansiedad te supera, habla con un adulto 
+      de confianza o un profesional de la salud. Ellos te pueden dar herramientas seguras
+       y efectivas para manejarla. La automedicación es un juego ruso.</p>
+
+      <img src="image/xanax.jpeg" class="imagen-modal">
+       
+      
+    </div>
+    
+  </template>
+   
+  
+</div>
+
+
+
+
   <!-- Pie -->
   <footer>© 2025 Tienda promocional digital OxyMarket propiedad de Erizo's Company S.A de C.V.</footer>
 
@@ -143,8 +362,7 @@
 <script src="funcionality.js"></script>
 <script src="chatbot.js" type="module"></script>
 
+
+    
 </body>
 </html>
-
-
-

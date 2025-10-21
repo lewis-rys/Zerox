@@ -66,23 +66,30 @@ function abrirModalcontacto() { abrirModalGeneral('modalGeneralcontacto'); }
 function abrirModalvideo() { abrirModalGeneral('modalGeneralvideo'); }
 function abrirModaldrogas() { abrirModalGeneral('modalGeneraldrogas'); }
 function abrirModalinicio() { abrirModalGeneral('modalGeneralinicio'); }
+function abrirModalfentanilo() { abrirModalGeneral('modalGeneralfentanilo');}
+function abrirModalcannabis() { abrirModalGeneral('modalGeneralcannabis');}
+function abrirModalcocaina() { abrirModalGeneral('modalGeneralcocaina');}
+function abrirModalnicotina() { abrirModalGeneral('modalGeneralnicotina');}
+function abrirModalalcohol() { abrirModalGeneral('modalGeneralalcohol');}
+function abrirModalxanax() { abrirModalGeneral('modalGeneralxanax');}
 
 // === FUNCIÓN GENERAL PARA CERRAR MODAL ===
 function cerrarModalGeneral() {
   const modal = document.getElementById('modalGeneralContainer');
   const modalContent = document.getElementById('modalContent');
 
-  // Añadir clases de animación de cierre
+  modal.classList.remove('show');
+  modal.offsetHeight; // Forzar reflujo
   modal.classList.add('hide');
   modalContent.classList.add('hide');
 
-  // Esperar a que termine la animación antes de limpiar
   setTimeout(() => {
-    modal.classList.remove('show', 'hide');
+    modal.classList.remove('hide');
     modalContent.classList.remove('hide');
     modalContent.innerHTML = '';
-  }, 400); // coincide con la duración del CSS
+  }, 400); // tiempo igual a la duración de la animación CSS
 }
+
 
 
 // === OPCIONAL: CERRAR MODAL AL HACER CLIC FUERA ===

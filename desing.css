@@ -385,7 +385,25 @@ footer {
   cursor: pointer;
 }
 
+/*botones medios*/
+.contenedor-botones {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los botones bajen si no caben */
+  justify-content: center;
+  gap: 10px; /* Espacio entre botones */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-
-
-
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background 0.3s;
+}
