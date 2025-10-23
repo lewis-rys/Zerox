@@ -270,17 +270,62 @@ nav button:hover {
 footer {
   background-color: rgb(15, 4, 43);
   color: aliceblue;
-  text-align: center;
-  padding: 15px;
+  padding: 15px 20px;
   border-radius: 10px 10px 0 0;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
+
+footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer .footer-text {
+  flex: 1;
+}
+
+footer .footer-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* Siempre a la derecha */
+}
+
+footer .footer-icons a img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+footer .footer-icons a img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* === Responsivo para móviles === */
+@media (max-width: 768px) {
+  footer .footer-content {
+    flex-direction: column;
+    align-items: stretch; /* importante: mantiene los elementos alineados horizontalmente al ancho completo */
+    gap: 10px;
+  }
+
+  footer .footer-icons {
+    justify-content: flex-end; /* siempre a la derecha */
+    align-self: flex-end;      /* fuerza a estar a la derecha del contenedor */
+  }
+
+  footer .footer-text {
+    text-align: left; /* opcional, si quieres que el texto quede alineado a la izquierda */
+  }
+}
+
+
 
 /* === ANIMACIONES === */
 @keyframes fadeInScale {
@@ -385,17 +430,6 @@ footer {
   cursor: pointer;
 }
 
-/*botones medios*/
-.contenedor-botones {
-  display: flex;
-  flex-wrap: wrap; /* Permite que los botones bajen si no caben */
-  justify-content: center;
-  gap: 10px; /* Espacio entre botones */
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
 button {
   padding: 12px 20px;
@@ -406,4 +440,141 @@ button {
   background-color: #007bff;
   color: white;
   transition: background 0.3s;
+}
+
+
+/*seccion enmedio*/
+
+/* Contenedor principal: información izquierda, imágenes y botones derecha */
+.contenedor-principal {
+  display: flex;
+  gap: 20px; /* espacio entre info y derecha */
+  align-items: flex-start;
+  flex-wrap: wrap; /* adaptable en móviles */
+}
+
+/* Información a la izquierda */
+.contenedor-presentacion {
+  flex: 2; /* ocupa más espacio que la columna derecha */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  min-width: 250px;
+}
+
+/* Contenedor de imágenes y botones a la derecha */
+.contenedor-imagenes-botones {
+  flex: 1; /* columna derecha más pequeña */
+  display: flex;
+  flex-direction: column; /* primero imágenes, luego botones */
+  align-items: flex-end;  /* todo alineado a la derecha */
+  gap: 15px;
+  min-width: 180px;
+}
+
+/* Imágenes horizontales */
+.imagenes-frasco {
+  display: flex;
+  gap: 10px; /* espacio entre imágenes */
+  justify-content: flex-end; /* alineadas a la derecha */
+}
+
+.img-frasco {
+  width: 20%;        /* tamaño relativo al contenedor */
+  object-fit: contain;
+}
+
+/* Botones debajo de las imágenes */
+.contenedor-botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centrados en el contenedor */
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.contenedor-botones button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.contenedor-botones button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor-imagenes-botones {
+    align-items: center;
+  }
+
+  .imagenes-frasco {
+    justify-content: center;
+  }
+
+  .contenedor-botones {
+    justify-content: center;
+  }
+
+  .img-frasco {
+    width: 25%;
+  }
+}
+
+
+.producto-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* espacio entre enlaces */
+  margin-top: 15px;
+}
+
+.producto-enlaces .input-link {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.producto-enlaces .input-link:hover {
+  border-color: #007bff;
+  background-color: #e6f0ff;
+  color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .producto-enlaces {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .producto-enlaces .input-link {
+    width: 80%;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
 }

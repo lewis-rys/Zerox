@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zer0 X</title>
   <link rel="stylesheet" href="desing.css" />
+   <!-- logo superior -->
+  <link rel="icon" type="image/png" sizes="32x32" href="image/logox1.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="image/logox1.png">
+
 </head>
 <body>
   <br>
@@ -105,7 +109,7 @@ y cuáles son las consecuencias de su consumo.</p>
   <div class="modal-body">
     <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
     <h2>Videos</h2>
-
+    <h3>Aprender viendo, ¡tambien es valido!</h3>
     <div class="video-grid">
 
       <div class="video-item">
@@ -179,7 +183,9 @@ y cuáles son las consecuencias de su consumo.</p>
     <div class="modal-body">
       <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
       <h2>Contacto</h2>
-      <p>Selecciona un método de contacto.</p>
+      <p>Selecciona un método de contacto,</p>
+      <p>para reportar alguna falla de la plataforma.</p>
+      <p>Lo atenderemos lo antes posible</p>
       
       <div class="producto-enlaces">
         <a href="mailto:lewisreyes001@icloud.com" class="input-link">Correo</a>
@@ -188,16 +194,6 @@ y cuáles son las consecuencias de su consumo.</p>
     </div> 
   </template>
 
-
-
-<div class="contenedor-botones">
-   <button onclick="abrirModalfentanilo(); return false;">FENTANILO</button>
-   <button onclick="abrirModalcannabis(); return false;">CANNABIS</button>
-   <button onclick="abrirModalcocaina(); return false;">COCAINA</button>
-   <button onclick="abrirModalnicotina(); return false;">NICOTINA</button>
-   <button onclick="abrirModalalcohol(); return false;">ALCOHOL</button>
-   <button onclick="abrirModalxanax(); return false;">XANAX</button>
-  
 
   <template id="modalGeneralfentanilo">
     <div class="modal-body">
@@ -343,20 +339,44 @@ y cuáles son las consecuencias de su consumo.</p>
        y efectivas para manejarla. La automedicación es un juego ruso.</p>
 
       <img src="image/xanax.jpeg" class="imagen-modal">
-       
-      
     </div>
-    
   </template>
    
   
+
+<div class="contenedor-principal">
+  
+  <!-- Información a la izquierda -->
+  <div class="contenedor-presentacion">
+    <h1>Aprende sobre drogas</h1>
+    <h2>Es importante aprender sobre las drogas porque nos ayuda a entender sus efectos en el cuerpo y la mente,</h2>
+    <h2>permitiéndonos tomar decisiones informadas. Conocer sus riesgos y consecuencias puede prevenir</h2>
+    <h2>adicciones y problemas de salud. Además, la educación sobre drogas fomenta el autocuidado y la</h2>
+    <h2>responsabilidad personal. También nos prepara para identificar y evitar situaciones de riesgo. Aprender sobre</h2>
+    <h2>este tema promueve una sociedad más consciente y saludable. Finalmente, permite apoyar a quienes</h2>
+    <h2>enfrentan problemas de consumo con empatía y conocimiento.</h2>  
+  </div>
+<br>
+  <!-- Imágenes y botones a la derecha -->
+  <div class="contenedor-imagenes-botones">
+    <div class="imagenes-frasco">
+      <img src="image/frasco.png" alt="Frasco" class="img-frasco">
+      <img src="image/mota.png" alt="Mota" class="img-frasco">
+      <img src="image/jeringa.png" alt="Jeringa" class="img-frasco">
+    </div>
+
+    <div class="contenedor-botones">
+      <button onclick="abrirModalfentanilo(); return false;">FENTANILO</button>
+      <button onclick="abrirModalcannabis(); return false;">CANNABIS</button>
+      <button onclick="abrirModalcocaina(); return false;">COCAINA</button>
+      <button onclick="abrirModalnicotina(); return false;">NICOTINA</button>
+      <button onclick="abrirModalalcohol(); return false;">ALCOHOL</button>
+      <button onclick="abrirModalxanax(); return false;">XANAX</button>
+    </div>
+  </div>
 </div>
 
 
-
-
-  <!-- Pie -->
-  <footer>© 2025 Tienda promocional digital OxyMarket propiedad de Erizo's Company S.A de C.V.</footer>
 
  <!-- Scripts del frontend -->
 <script src="funcionality.js"></script>
@@ -365,4 +385,25 @@ y cuáles son las consecuencias de su consumo.</p>
 
     
 </body>
+<br>
+<br>
+<footer>
+  <div class="footer-content">
+    <span>© 2025 Tienda promocional digital OxyMarket propiedad de Erizo's Company S.A de C.V.</span>
+    <div class="footer-icons">
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <img src="image/x.png" alt="X">
+      </a>
+      <a href="https://www.facebook.com/share/19oMawFTn4/" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <img src="image/facebook.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/jesxz_opyi12?igsh=MWxka2U2ZG1td3prZA==" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <img src="image/instagram.png" alt="Instagram">
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+
 </html>
