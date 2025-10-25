@@ -3,7 +3,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
+    Arial, sans-serif;
   font-weight: 400; /* peso normal por defecto */
   letter-spacing: 0.3px; /* sutil, estilo Apple */
 }
@@ -13,11 +14,11 @@ header {
   display: flex;
   justify-content: space-between; /* título a la izquierda, logo a la derecha */
   align-items: center;
-  padding: 0 40px; 
-  height: 80px; 
+  padding: 0 40px;
+  height: 80px;
   background: linear-gradient(90deg, rgb(1, 78, 83), rgb(3, 120, 126));
   color: white;
-  border-radius: 30px;
+  border-radius: 12px;
   animation: fadeInDown 1s ease;
   overflow: hidden;
 }
@@ -32,8 +33,11 @@ header {
 .logo-header {
   height: 60px;
   width: auto;
+  transition: transform 0.3s ease;
 }
-
+.logo-header:hover {
+  transform: scale(1.08); /* Pequeño efecto de zoom */
+}
 /* === NAVEGACIÓN === */
 nav {
   position: relative;
@@ -55,7 +59,8 @@ nav button {
   font-weight: 600; /* semi-bold Apple */
   font-size: 16px;
   transition: all 0.3s ease;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
+    Arial, sans-serif;
 }
 
 nav button:hover {
@@ -68,15 +73,16 @@ nav button:hover {
   list-style: none;
   display: flex;
   gap: 15px;
-  margin-left: auto; 
+  margin-left: auto;
   align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
+    Arial, sans-serif;
 }
 
 .nav-link a {
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 16px; 
+  font-size: 16px;
   font-weight: 500; /* medium */
   padding: 5px 10px;
   transition: all 0.3s ease;
@@ -115,9 +121,7 @@ nav button:hover {
     right: 0;
     width: 100%;
     flex-direction: column;
-    background: linear-gradient(
-      to bottom, white 0%, #007BFF 50%, white 100%
-    );
+    background: linear-gradient(to bottom, white 0%, #007bff 50%, white 100%);
     text-align: center;
     padding: 20px 0;
     border-radius: 0 0 15px 15px;
@@ -165,7 +169,7 @@ nav button:hover {
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
-  
+
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -182,22 +186,23 @@ nav button:hover {
   border-radius: 15px;
   width: 90%;
   max-width: 600px;
-  max-height: 80vh; 
+  max-height: 80vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   transform: scale(0.8);
   opacity: 0;
   animation: fadeInScale 0.4s ease forwards;
 
-  overflow-y: auto; 
-  
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  overflow-y: auto;
+
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
+    Arial, sans-serif;
   font-weight: 400;
 }
 
 .modal-content h2 {
   margin-bottom: 10px;
   color: rgb(65, 8, 95);
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 22px;
 }
 
@@ -206,6 +211,23 @@ nav button:hover {
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
+}
+.imagen-modal {
+  border-radius: 20px;
+  height: auto; /* Mantiene la proporción original */
+  max-height: 70vh; /* Limita el alto a 80% del alto de la pantalla */
+  width: auto; /* Se ajusta automáticamente al ancho */
+  max-width: 90%; /* Evita que se salga del contenedor */
+  display: block; /* Centra la imagen si usas margin auto */
+  margin: 0 auto; /* Centrado horizontal */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+  object-fit: cover; /* Ajuste de imagen sin deformación */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+.imagen-modal:hover {
+  transform: scale(1.05); /* Efecto zoom al pasar el cursor */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* === BOTÓN CERRAR === */
@@ -234,7 +256,6 @@ nav button:hover {
   justify-items: center; /* centra los videos en cada columna */
 }
 
-
 .video-item {
   display: flex;
   flex-direction: column;
@@ -243,12 +264,11 @@ nav button:hover {
   max-width: 300px; /* opcional para limitar tamaño de video */
 }
 
-
 .video-item video {
   width: 100%;
   height: auto;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
@@ -265,16 +285,16 @@ nav button:hover {
   line-height: 1.3;
 }
 
-
 /* === FOOTER === */
 footer {
   background-color: rgb(15, 4, 43);
   color: aliceblue;
   padding: 15px 20px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 12px;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
+    Arial, sans-serif;
   font-weight: 400;
 }
 
@@ -317,15 +337,13 @@ footer .footer-icons a img:hover {
 
   footer .footer-icons {
     justify-content: flex-end; /* siempre a la derecha */
-    align-self: flex-end;      /* fuerza a estar a la derecha del contenedor */
+    align-self: flex-end; /* fuerza a estar a la derecha del contenedor */
   }
 
   footer .footer-text {
     text-align: left; /* opcional, si quieres que el texto quede alineado a la izquierda */
   }
 }
-
-
 
 /* === ANIMACIONES === */
 @keyframes fadeInScale {
@@ -397,16 +415,28 @@ footer .footer-icons a img:hover {
   word-wrap: break-word;
 }
 
-.chat-message.user {
-  background-color: #4a90e2;
-  color: white;
-  align-self: flex-end;
+/* Mensaje del usuario */
+.chatbot-modal .chat-user {
+  align-self: flex-end; /* Alineado a la derecha */
+  background-color: #4caf50; /* Verde */
+  color: white; /* Texto blanco */
+  padding: 8px 12px; /* Espaciado interno */
+  border-radius: 16px 16px 0 16px; /* Burbujas redondeadas */
+  max-width: 70%; /* No ocupa todo el ancho */
+  word-wrap: break-word; /* Ajuste de línea */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.chat-message.bot {
-  background-color: #e0e0e0;
-  color: black;
-  align-self: flex-start;
+/* Mensaje de la IA */
+.chatbot-modal .chat-bot {
+  align-self: flex-start; /* Alineado a la izquierda */
+  background-color: #e0e0e0; /* Gris claro */
+  color: #333; /* Texto oscuro */
+  padding: 8px 12px; /* Espaciado interno */
+  border-radius: 16px 16px 16px 0; /* Burbujas redondeadas */
+  max-width: 70%; /* No ocupa todo el ancho */
+  word-wrap: break-word; /* Ajuste de línea */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .chat-input-container {
@@ -429,7 +459,28 @@ footer .footer-icons a img:hover {
   border-radius: 10px;
   cursor: pointer;
 }
+/* Contenedor de cada mensaje de la IA con avatar */
+.chatbot-modal .chat-bot {
+  display: flex; /* Permite que el avatar y texto estén lado a lado */
+  align-items: flex-start;
+  gap: 8px; /* Espacio entre avatar y texto */
+  align-self: flex-start;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 16px 16px 16px 0;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+/* Avatar de la IA */
+.chatbot-modal .chat-bot .avatar-ia {
+  width: 32px; /* Tamaño del avatar */
+  height: 32px;
+  border-radius: 50%; /* Circular */
+  object-fit: cover; /* Ajusta la imagen */
+}
 
 button {
   padding: 12px 20px;
@@ -441,7 +492,6 @@ button {
   color: white;
   transition: background 0.3s;
 }
-
 
 /*seccion enmedio*/
 
@@ -459,7 +509,7 @@ button {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   min-width: 250px;
 }
 
@@ -468,7 +518,7 @@ button {
   flex: 1; /* columna derecha más pequeña */
   display: flex;
   flex-direction: column; /* primero imágenes, luego botones */
-  align-items: flex-end;  /* todo alineado a la derecha */
+  align-items: flex-end; /* todo alineado a la derecha */
   gap: 15px;
   min-width: 180px;
 }
@@ -481,7 +531,7 @@ button {
 }
 
 .img-frasco {
-  width: 20%;        /* tamaño relativo al contenedor */
+  width: 20%; /* tamaño relativo al contenedor */
   object-fit: contain;
 }
 
@@ -510,7 +560,6 @@ button {
   transform: scale(1.05);
 }
 
-
 /* Ajustes responsivos */
 @media (max-width: 768px) {
   .contenedor-principal {
@@ -535,7 +584,6 @@ button {
   }
 }
 
-
 .producto-enlaces {
   display: flex;
   flex-wrap: wrap;
@@ -550,7 +598,8 @@ button {
   padding: 12px 20px;
   border: 2px solid #ccc;
   border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
+    Arial, sans-serif;
   font-size: 16px;
   color: #333;
   background-color: #fafafa;
