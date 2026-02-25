@@ -1,695 +1,612 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zer0 X</title>
-    <link rel="stylesheet" href="static/css/desing.css" />
-    <!-- logo superior -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="static/image/logox1.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="static/image/logox1.png"
-    />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zer0 X</title>
+  <link rel="stylesheet" href="static/css/desing.css" />
+  <!-- logo superior -->
+  <link rel="icon" type="image/png" sizes="32x32" href="static/image/logox1.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="static/image/logox1.png" />
+
+  <!-- tipografía más seria y alineación justificada para todos los modales (sin modificar CSS externo ni JS) -->
+  <style>
+    /* solo aplica a los textos dentro de modales (clase modal-body) */
+    .modal-body p,
+    .modal-body .video-desc,
+    .modal-body .chat-messages {
+      font-family: 'Times New Roman', Times, serif;
+      text-align: justify;
+    }
+
+    .modal-body h2,
+    .modal-body h3 {
+      font-family: 'Times New Roman', Times, serif;
+      text-align: left;
+      /* títulos alineados a la izquierda para mantener orden */
+    }
+
+    /* para otros textos genéricos que pudieran no estar cubiertos */
+    .modal-body li,
+    .modal-body a,
+    .modal-body span:not(.cerrar-btn) {
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* mensajes del chatbot (se generan dinámicamente) también justificados */
+    .chat-messages {
+      text-align: justify !important;
+    }
+  </style>
+</head>
+
+<body>
+  <br />
+  <header>
+    <h1 class="titulo">Zer0 X</h1>
+    <img src="static/image/logox1.png" alt="Logo" class="logo-header" />
+  </header>
+
+  <!-- Navegación -->
+  <nav>
+    <ul class="nav-link" id="nav-link">
+      <li>
+        <button onclick="abrirModalinicio(); return false;">INICIO</button>
+      </li>
+      <!-- CHATBOT eliminado -->
+      <li>
+        <button onclick="abrirModalvideo(); return false;">VIDEOS</button>
+      </li>
+      <li>
+        <button onclick="abrirModalcontacto(); return false;">
+          CONTACTOS
+        </button>
+      </li>
+    </ul>
+
+    <div class="hamburguer" id="hamburguer">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
+
+  <!-- Contenedor del modal (¡¡sin style inline!!) -->
+  <div id="modalGeneralContainer" class="modal-container" aria-hidden="true">
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- Templates -->
+  <template id="modalGeneralinicio">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Inicio</h2>
+      <p>Bienvenido a ZeroX</p>
+
+      <p>
+        Nuestra aplicación web está diseñada con un propósito claro: informar,
+        orientar y apoyar a quienes buscan conocer más sobre las drogas y sus
+        efectos . En este espacio encontrarás información confiable y
+        accesible sobre qué son las drogas, cómo afectan al cuerpo y la mente,
+        y cuáles son las consecuencias de su consumo.
+      </p>
+
+      <p>
+        Además, contamos con una sección de contactos de ayuda, donde podrás
+        acceder a instituciones y líneas de apoyo especializadas que brindan
+        atención profesional, confidencial y gratuita.
+      </p>
+
+      <img src="static/image/image.png" alt="Descripción de la imagen" class="imagen-modal" />
+
+      <p>
+        Y si necesitas resolver alguna duda de forma directa, nuestro chat
+        interactivo te permitirá hacer preguntas y recibir respuestas
+        personalizadas en un entorno seguro y respetuoso. Informarte es
+        cuidarte. Nuestra misión es ofrecerte un espacio digital donde la
+        información y la orientación se unan para promover el bienestar y la
+        toma de decisiones conscientes.
+      </p>
+    </div>
+  </template>
+
+  <!-- Template de chatbot eliminado -->
+
+  <script>
+    // Función para cerrar cualquier modal (definida aquí por compatibilidad)
+    function cerrarModalGeneral() {
+      const modal = document.querySelector(".modal-body")?.closest(".modal-content");
+      if (modal) modal.remove();
+    }
+  </script>
+
+  <template id="modalGeneralvideo">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Videos</h2>
+      <h3>Aprender viendo, ¡tambien es valido!</h3>
+      <div class="video-grid">
+        <div class="video-item">
+          <video src="static/videos/adiccionperu_1758578848581.mp4" controls></video>
+          <p class="video-desc">Impacto de la adicción en Perú</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/alexelpro130_1759034020987.mp4" controls></video>
+          <p class="video-desc">Testimonio de Alex</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/aqueldia7_1758417083135.mp4" controls></video>
+          <p class="video-desc">Experiencias de adolescentes</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/drogas.en.los.ado_1758578516936.mp4" controls></video>
+          <p class="video-desc">Situación de drogas en adolescentes</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/patronatodesantaana_1758578384724.mp4" controls></video>
+          <p class="video-desc">Patronato de Santa Ana</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/situacciones_1759033794680.mp4" controls></video>
+          <p class="video-desc">Situaciones comunes</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/tashab.xx_1758417222100.mp4" controls></video>
+          <p class="video-desc">Tasha B. experiencia</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/siteorecen drogas.mp4" controls></video>
+          <p class="video-desc">Musical</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/sustanciasmichis.mp4" controls></video>
+          <p class="video-desc">Consumo de sustancias explicado con michis</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/nicotina.mp4" controls></video>
+          <p class="video-desc">Nicotina</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/fentanilo.mp4" controls></video>
+          <p class="video-desc">Fentanilo</p>
+        </div>
+
+        <div class="video-item">
+          <video src="static/videos/alcohol.mp4" controls></video>
+          <p class="video-desc">Alcohol</p>
+        </div>
+      </div>
+      <!-- Cierre de video-grid -->
+    </div>
+  </template>
+
+  <template id="modalGeneralcontacto">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Contacto</h2>
+      <p>Selecciona un método de contacto,</p>
+      <p>para reportar alguna falla de la plataforma.</p>
+      <p>Lo atenderemos lo antes posible</p>
+
+      <div class="producto-enlaces">
+        <a href="mailto:lewisreyes001@icloud.com" class="input-link">Correo</a>
+        <a href="https://wa.me/529221601709" target="_blank" class="input-link">WhatsApp</a>
+      </div>
+    </div>
+  </template>
+
+  <template id="modalGeneralfentanilo">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Fentanilo</h2>
+      <p>Fentanilo: El Asesino Invisible ☠</p>
+
+      <p>
+        · La Verdad Sin Filtros: Es un opioide sintético 50 veces más potente
+        que la heroína. Una cantidad equivalente a 4-5 granos de sal puede ser
+        mortal.
+      </p>
+      <p>
+        · ¿Por qué es un riesgo REAL para ti? No es una droga que la gente
+        suele buscar. Está apareciendo en pastillas falsas que se venden en
+        redes sociales como si fueran Xanax, Adderall o éxtasis, y en drogas
+        como la cocaína o la metanfetamina. Tú puedes pensar que estás tomando
+        una cosa, pero si tiene fentanilo, puedes morir en minutos.
+      </p>
+
+      <p>
+        · El Impacto en Tu Cuerpo: Deprime el sistema respiratorio hasta que
+        dejas de respirar. La muerte por sobredosis es rápida.
+      </p>
+      <p>· La Elección Inteligente:</p>
+      <p></p>
+      <p>
+        · NUNCA tomes pastillas que no vengan de una farmacia con receta
+        médica para ti.
+      </p>
+      <p>
+        · Si estás en un entorno donde alguien podría consumir, infórmate
+        sobre el Naloxone (Narcan), un medicamento que puede revertir una
+        sobredosis por opioides.
+      </p>
+
+      <img src="static/image/fentanilo.jpeg" alt="Descripción de la imagen" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralcannabis">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Cannabis</h2>
+      <p>Cannabis (Marihuana): No Es Sólo "Una Plantita" 🌿</p>
+
+      <p>
+        · La Verdad Sin Filtros: Si bien es menos riesgosa que otras drogas,
+        no es inocua, especialmente para un cerebro adolescente.
+      </p>
+      <p>· El Impacto en Tu Mente y Tu Futuro:</p>
+      <p>
+        · Memoria y Aprendizaje: Dificulta la concentración y la retención de
+        información.
+      </p>
+      <p>
+        Puede bajar tu rendimiento escolar y afectar tu capacidad para
+        alcanzar tus metas.
+      </p>
+      <p>
+        · Salud Mental: Puede aumentar el riesgo de sufrir ansiedad, paranoia
+        y desencadenar episodios psicóticos en quienes son vulnerables.
+      </p>
+      <p>
+        · Motivación: Puede quitarte las ganas de hacer cosas (síndrome
+        amotivacional).
+      </p>
+      <p>
+        · La Elección Inteligente: Si vas a consumir, espera. Cada año que
+        retrasas el consumo en la adolescencia reduce el daño potencial en tu
+        cerebro en desarrollo.
+      </p>
+
+      <img src="static/image/cannabis.jpeg" alt="Descripción de la imagen" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralcocaina">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Cocaina</h2>
+      <p>Cocaína: La Mentira de la Energía Rápida ❄</p>
+
+      <p>
+        · La Verdad Sin Filtros: Te da una subida de energía y confianza
+        intensa, pero falsa y muy corta.
+      </p>
+      <p>El bajón es brutal: ansiedad, irritabilidad y depresión.</p>
+      <p>· El Impacto en Tu Cuerpo y Tu Vida:</p>
+      <p>
+        · Adicción: Es extremadamente adictiva. Dejas de usarla para sentirte
+        bien y la usas para dejar de sentirte mal.
+      </p>
+      <p>
+        · Corazón: Acelera tu corazón hasta niveles peligrosos, pudiendo
+        causar infartos en jóvenes incluso la primera vez.
+      </p>
+      <p>
+        · Dinero y Relaciones: Es carísima y suele llevar a comportamientos
+        compulsivos y conflictos con familia y amigos.
+      </p>
+      <p>
+        · La Elección Inteligente: Pregúntate: ¿realmente necesito una
+        sustancia para divertirme o conectar con los demás? La energía real
+        viene del descanso, la buena alimentación y hacer cosas que te
+        apasionen.
+      </p>
+
+      <img src="static/image/cocaina.jpeg" alt="Descripción de la imagen" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralnicotina">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Nicotina</h2>
+      <p>Nicotina (Vapeadores): El Gusano en la Manzana 🍎</p>
+
+      <p>
+        · La Verdad Sin Filtros: Los vapeadores no son "vapor de agua".
+        Contienen nicotina, una de las sustancias más adictivas que existen,
+        además de sustancias químicas dañinas para tus pulmones.
+      </p>
+      <p>· El Impacto en Tu Cuerpo:</p>
+      <p>
+        · Cerebro: La nicotina altera el desarrollo de los circuitos
+        cerebrales que controlan la atención y el aprendizaje.
+      </p>
+      <p>
+        · Pulmones: Puede causar daño pulmonar (conocido como "pulmón de
+        palomitas de maíz").
+      </p>
+      <p>
+        · Bolsillo: Es un gasto constante por una adicción que cuesta mucho
+        dejar.
+      </p>
+      <p>
+        · La Elección Inteligente: No dejes que el marketing te engañe. La
+        "nube de sabor" es una trampa de adicción. Respirar aire limpio es
+        siempre más cool.
+      </p>
+
+      <img src="static/image/nicotina.jpeg" alt="Descripción de la imagen" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralalcohol">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>ALCOHOL</h2>
+      <p>Alcohol: El Desinhibidor Peligroso 🍺</p>
+
+      <p>
+        · La Verdad Sin Filtros: Es la droga más normalizada, pero eso no la
+        hace segura. Afecta tu juicio desde el primer trago.
+      </p>
+      <p>· El Impacto en Ti:</p>
+      <p>
+        · Decisiones: Bajo sus efectos, es más probable que hagas cosas de las
+        que te arrepientas: tener sexo sin protección, subir fotos/videos
+        comprometedores, conducir ebrio o sufrir accidentes.
+      </p>
+      <p>· Cerebro: Mata neuronas y afecta la memoria a largo plazo.</p>
+      <p>· Salud Mental: Empeora la ansiedad y la depresión a largo plazo.</p>
+      <p>· La Elección Inteligente:</p>
+      <p>
+        · Si bebes, hazlo con gente de confianza, come antes y durante,
+        alterna con agua y NUNCA manejes. Designa a un conductor sobrio.
+      </p>
+      <p>
+        · La mejor opción: disfrutar de un buen momento sin necesidad de
+        alcohol es un superpoder.
+      </p>
+
+      <img src="static/image/alcohol.jpeg" alt="Descripción de la imagen" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralxanax">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Xanax</h2>
+      <p>
+        Xanax (Alprazolam): La Pastilla para "Desconectar" que Enciende una
+        Trampa 💊
+      </p>
+
+      <p>
+        · La Verdad Sin Filtros: Es un medicamento para la ansiedad severa.
+        Usarlo sin receta médica es como usar una bazuca para matar un
+        mosquito.
+      </p>
+      <p>· El Impacto en Tu Mente:</p>
+      <p>
+        · Adicción Física: Tu cuerpo se acostumbra rápidamente. Si dejas de
+        tomarlo, sufrirás un síndrome de abstinencia que puede ser mortal, con
+        ansiedad extrema, insomnio y convulsiones.
+      </p>
+      <p>
+        · Efectos: Te quita toda la motivación, te deja como un "zombi" y
+        nubla tu memoria.
+      </p>
+      <p>
+        · Combinación Mortal: Mezclarlo con alcohol es una de las
+        combinaciones más peligrosas. Deprime tanto tu sistema respiratorio
+        que puedes dejar de respirar y morir.
+      </p>
+      <p>
+        · La Elección Inteligente: Si sientes que la ansiedad te supera, habla
+        con un adulto de confianza o un profesional de la salud. Ellos te
+        pueden dar herramientas seguras y efectivas para manejarla. La
+        automedicación es un juego ruso.
+      </p>
+
+      <img src="static/image/xanax.jpeg" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralmarihuana">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Marihuana</h2>
+      <p>
+        La marihuana es una planta conocida por sus efectos psicoactivos
+        debido al tetrahidrocannabinol (THC). Se utiliza tanto con fines
+        recreativos como medicinales para aliviar el dolor, la ansiedad y las
+        náuseas.
+      </p>
+      <p>
+        Su consumo puede causar relajación, euforia o alteraciones en la
+        percepción del tiempo. Sin embargo, también puede generar dependencia
+        y afectar la memoria o la coordinación motora.
+      </p>
+      <p>
+        En varios países, su uso médico ha sido legalizado bajo control,
+        mientras que el consumo recreativo sigue siendo un tema de debate
+        social y legal.
+      </p>
+
+      <img src="static/image/marihuana.jpg" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralopioides">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Opioides</h2>
+      <p>
+        Los opioides son sustancias que actúan sobre el sistema nervioso para
+        reducir el dolor. Incluyen medicamentos como la morfina, la oxicodona
+        y la codeína, además de drogas ilegales como la heroína.
+      </p>
+
+      <p>
+        Se usan médicamente para tratar dolores intensos, pero su uso indebido
+        puede causar dependencia, sobredosis y problemas respiratorios graves.
+      </p>
+
+      <p>
+        La crisis de opioides en varios países ha generado un aumento en las
+        muertes por sobredosis y ha impulsado campañas para un uso más
+        responsable y tratamientos contra la adicción.
+      </p>
+      <img src="static/image/opioides.jpg" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGenerallsd">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>LSD</h2>
+      <p>
+        El LSD (dietilamida del ácido lisérgico) es una droga alucinógena que
+        altera la percepción, el pensamiento y las emociones. Se consume en
+        pequeñas dosis, generalmente en forma de papel absorbente.
+      </p>
+
+      <p>
+        Sus efectos incluyen cambios visuales, sensación de euforia y
+        distorsión del tiempo, aunque también puede provocar ansiedad,
+        paranoia o "malos viajes".
+      </p>
+
+      <p>
+        Aunque no se considera físicamente adictivo, su uso frecuente puede
+        causar tolerancia y afectar la salud mental de forma prolongada.
+      </p>
+
+      <img src="static/image/lsd.jpg" class="imagen-modal" />
+    </div>
+  </template>
+
+  <template id="modalGeneralcrack">
+    <div class="modal-body">
+      <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
+      <h2>Crack</h2>
+
+      <p>
+        El crack es una forma cristalizada de la cocaína que se fuma y produce
+        un efecto intenso y rápido en el cerebro. Es altamente adictivo debido
+        a la rapidez con la que genera placer y euforia.
+      </p>
+
+      <p>
+        Sus efectos incluyen aumento de energía, euforia y disminución del
+        apetito, pero también provoca ansiedad, paranoia y agresividad.
+      </p>
+
+      <p>
+        El consumo frecuente de crack puede causar graves daños físicos y
+        mentales, incluyendo problemas cardíacos, respiratorios y deterioro
+        cognitivo.
+      </p>
+
+      <img src="static/image/crack.jpg" class="imagen-modal" />
+    </div>
+  </template>
+
+  <div class="contenedor-principal">
+    <!-- Información a la izquierda -->
+    <div class="contenedor-presentacion">
+      <h1>Aprende sobre drogas</h1>
+      <h2>
+        Es importante aprender sobre las drogas porque nos ayuda a entender
+        sus efectos en el cuerpo y la mente,
+      </h2>
+      <h2>
+        permitiéndonos tomar decisiones informadas. Conocer sus riesgos y
+        consecuencias puede prevenir
+      </h2>
+      <h2>
+        adicciones y problemas de salud. Además, la educación sobre drogas
+        fomenta el autocuidado y la
+      </h2>
+      <h2>
+        responsabilidad personal. También nos prepara para identificar y
+        evitar situaciones de riesgo. Aprender sobre
+      </h2>
+      <h2>
+        este tema promueve una sociedad más consciente y saludable.
+        Finalmente, permite apoyar a quienes
+      </h2>
+      <h2>enfrentan problemas de consumo con empatía y conocimiento.</h2>
+    </div>
     <br />
-    <header>
-      <h1 class="titulo">Zer0 X</h1>
-      <img src="static/image/logox1.png" alt="Logo" class="logo-header" />
-    </header>
-
-    <!-- Navegación -->
-    <nav>
-      <ul class="nav-link" id="nav-link">
-        <li>
-          <button onclick="abrirModalinicio(); return false;">INICIO</button>
-        </li>
-        <li>
-          <button onclick="abrirModaldrogas(); return false;">CHATBOT</button>
-        </li>
-        <li>
-          <button onclick="abrirModalvideo(); return false;">VIDEOS</button>
-        </li>
-        <li>
-          <button onclick="abrirModalcontacto(); return false;">
-            CONTACTOS
-          </button>
-        </li>
-      </ul>
-
-      <div class="hamburguer" id="hamburguer">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+    <!-- Imágenes y botones a la derecha -->
+    <div class="contenedor-imagenes-botones">
+      <div class="imagenes-frasco">
+        <img src="static/image/frasco.png" alt="Frasco" class="img-frasco" />
+        <img src="static/image/mota.png" alt="Mota" class="img-frasco" />
+        <img src="static/image/jeringa.png" alt="Jeringa" class="img-frasco" />
       </div>
-    </nav>
 
-    <!-- Contenedor del modal (¡¡sin style inline!!) -->
-    <div id="modalGeneralContainer" class="modal-container" aria-hidden="true">
-      <div class="modal-content" id="modalContent"></div>
-    </div>
-
-    <!-- Templates -->
-    <template id="modalGeneralinicio">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Inicio</h2>
-        <p>Bienvenido a ZeroX</p>
-
-        <p>
-          Nuestra aplicación web está diseñada con un propósito claro: informar,
-          orientar y apoyar a quienes buscan conocer más sobre las drogas y sus
-          efectos . En este espacio encontrarás información confiable y
-          accesible sobre qué son las drogas, cómo afectan al cuerpo y la mente,
-          y cuáles son las consecuencias de su consumo.
-        </p>
-
-        <p>
-          Además, contamos con una sección de contactos de ayuda, donde podrás
-          acceder a instituciones y líneas de apoyo especializadas que brindan
-          atención profesional, confidencial y gratuita.
-        </p>
-
-        <img
-          src="static/image/image.png"
-          alt="Descripción de la imagen"
-          class="imagen-modal"
-        />
-
-        <p>
-          Y si necesitas resolver alguna duda de forma directa, nuestro chat
-          interactivo te permitirá hacer preguntas y recibir respuestas
-          personalizadas en un entorno seguro y respetuoso. Informarte es
-          cuidarte. Nuestra misión es ofrecerte un espacio digital donde la
-          información y la orientación se unan para promover el bienestar y la
-          toma de decisiones conscientes.
-        </p>
-      </div>
-    </template>
-
-    <template id="modalGeneraldrogas">
-      <div class="modal-body chatbot-modal">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Drogas - Chatbot</h2>
-        <p>Pregunta cualquier cosa sobre drogas y prevención:</p>
-
-        <div class="chat-messages" id="chatMessages"></div>
-
-        <div class="chat-input-container">
-          <input
-            type="text"
-            id="chatInput"
-            placeholder="Escribe tu pregunta..."
-          />
-          <button id="sendBtn">Enviar</button>
-        </div>
-      </div>
-    </template>
-
-    <script>
-      // Función para mostrar e inicializar el modal cuando sea insertado en el DOM
-      function abrirModalGeneral() {
-        const template = document.getElementById("modalGeneraldrogas");
-        const modalContent = template.content.cloneNode(true);
-
-        // Insertar modal en el body
-        document.body.appendChild(modalContent);
-
-        // Inicializar chatbot
-        if (window.inicializarChatbot) {
-          window.inicializarChatbot();
-          console.log("✅ Chatbot inicializado correctamente");
-        } else {
-          console.error("❌ inicializarChatbot no disponible");
-          alert("Error: chatbot.js no está cargado correctamente");
-        }
-      }
-
-      function cerrarModalGeneral() {
-        const modal = document.querySelector(".chatbot-modal");
-        if (modal) modal.remove();
-      }
-    </script>
-
-    <template id="modalGeneralvideo">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Videos</h2>
-        <h3>Aprender viendo, ¡tambien es valido!</h3>
-        <div class="video-grid">
-          <div class="video-item">
-            <video
-              src="static/videos/adiccionperu_1758578848581.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Impacto de la adicción en Perú</p>
-          </div>
-
-          <div class="video-item">
-            <video
-              src="static/videos/alexelpro130_1759034020987.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Testimonio de Alex</p>
-          </div>
-
-          <div class="video-item">
-            <video
-              src="static/videos/aqueldia7_1758417083135.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Experiencias de adolescentes</p>
-          </div>
-
-          <div class="video-item">
-            <video
-              src="static/videos/drogas.en.los.ado_1758578516936.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Situación de drogas en adolescentes</p>
-          </div>
-
-          <div class="video-item">
-            <video
-              src="static/videos/patronatodesantaana_1758578384724.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Patronato de Santa Ana</p>
-          </div>
-
-          <div class="video-item">
-            <video
-              src="static/videos/situacciones_1759033794680.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Situaciones comunes</p>
-          </div>
-
-          <div class="video-item">
-            <video
-              src="static/videos/tashab.xx_1758417222100.mp4"
-              controls
-            ></video>
-            <p class="video-desc">Tasha B. experiencia</p>
-          </div>
-
-          <div class="video-item">
-            <video src="static/videos/siteorecen drogas.mp4" controls></video>
-            <p class="video-desc">Musical</p>
-          </div>
-
-          <div class="video-item">
-            <video src="static/videos/sustanciasmichis.mp4" controls></video>
-            <p class="video-desc">Consumo de sustancias explicado con michis</p>
-          </div>
-
-          <div class="video-item">
-            <video src="static/videos/nicotina.mp4" controls></video>
-            <p class="video-desc">Nicotina</p>
-          </div>
-
-          <div class="video-item">
-            <video src="static/videos/fentanilo.mp4" controls></video>
-            <p class="video-desc">Fentanilo</p>
-          </div>
-
-          <div class="video-item">
-            <video src="static/videos/alcohol.mp4" controls></video>
-            <p class="video-desc">Alcohol</p>
-          </div>
-        </div>
-        <!-- Cierre de video-grid -->
-      </div>
-    </template>
-
-    <template id="modalGeneralcontacto">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Contacto</h2>
-        <p>Selecciona un método de contacto,</p>
-        <p>para reportar alguna falla de la plataforma.</p>
-        <p>Lo atenderemos lo antes posible</p>
-
-        <div class="producto-enlaces">
-          <a href="mailto:lewisreyes001@icloud.com" class="input-link"
-            >Correo</a
-          >
-          <a
-            href="https://wa.me/529221601709"
-            target="_blank"
-            class="input-link"
-            >WhatsApp</a
-          >
-        </div>
-      </div>
-    </template>
-
-    <template id="modalGeneralfentanilo">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Fentanilo</h2>
-        <p>Fentanilo: El Asesino Invisible ☠</p>
-
-        <p>
-          · La Verdad Sin Filtros: Es un opioide sintético 50 veces más potente
-          que la heroína. Una cantidad equivalente a 4-5 granos de sal puede ser
-          mortal.
-        </p>
-        <p>
-          · ¿Por qué es un riesgo REAL para ti? No es una droga que la gente
-          suele buscar. Está apareciendo en pastillas falsas que se venden en
-          redes sociales como si fueran Xanax, Adderall o éxtasis, y en drogas
-          como la cocaína o la metanfetamina. Tú puedes pensar que estás tomando
-          una cosa, pero si tiene fentanilo, puedes morir en minutos.
-        </p>
-
-        <p>
-          · El Impacto en Tu Cuerpo: Deprime el sistema respiratorio hasta que
-          dejas de respirar. La muerte por sobredosis es rápida.
-        </p>
-        <p>· La Elección Inteligente:</p>
-        <p></p>
-        <p>
-          · NUNCA tomes pastillas que no vengan de una farmacia con receta
-          médica para ti.
-        </p>
-        <p>
-          · Si estás en un entorno donde alguien podría consumir, infórmate
-          sobre el Naloxone (Narcan), un medicamento que puede revertir una
-          sobredosis por opioides.
-        </p>
-
-        <img
-          src="static/image/fentanilo.jpeg"
-          alt="Descripción de la imagen"
-          class="imagen-modal"
-        />
-      </div>
-    </template>
-
-    <template id="modalGeneralcannabis">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Cannabis</h2>
-        <p>Cannabis (Marihuana): No Es Sólo "Una Plantita" 🌿</p>
-
-        <p>
-          · La Verdad Sin Filtros: Si bien es menos riesgosa que otras drogas,
-          no es inocua, especialmente para un cerebro adolescente.
-        </p>
-        <p>· El Impacto en Tu Mente y Tu Futuro:</p>
-        <p>
-          · Memoria y Aprendizaje: Dificulta la concentración y la retención de
-          información.
-        </p>
-        <p>
-          Puede bajar tu rendimiento escolar y afectar tu capacidad para
-          alcanzar tus metas.
-        </p>
-        <p>
-          · Salud Mental: Puede aumentar el riesgo de sufrir ansiedad, paranoia
-          y desencadenar episodios psicóticos en quienes son vulnerables.
-        </p>
-        <p>
-          · Motivación: Puede quitarte las ganas de hacer cosas (síndrome
-          amotivacional).
-        </p>
-        <p>
-          · La Elección Inteligente: Si vas a consumir, espera. Cada año que
-          retrasas el consumo en la adolescencia reduce el daño potencial en tu
-          cerebro en desarrollo.
-        </p>
-
-        <img
-          src="static/image/cannabis.jpeg"
-          alt="Descripción de la imagen"
-          class="imagen-modal"
-        />
-      </div>
-    </template>
-
-    <template id="modalGeneralcocaina">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Cocaina</h2>
-        <p>Cocaína: La Mentira de la Energía Rápida ❄</p>
-
-        <p>
-          · La Verdad Sin Filtros: Te da una subida de energía y confianza
-          intensa, pero falsa y muy corta.
-        </p>
-        <p>El bajón es brutal: ansiedad, irritabilidad y depresión.</p>
-        <p>· El Impacto en Tu Cuerpo y Tu Vida:</p>
-        <p>
-          · Adicción: Es extremadamente adictiva. Dejas de usarla para sentirte
-          bien y la usas para dejar de sentirte mal.
-        </p>
-        <p>
-          · Corazón: Acelera tu corazón hasta niveles peligrosos, pudiendo
-          causar infartos en jóvenes incluso la primera vez.
-        </p>
-        <p>
-          · Dinero y Relaciones: Es carísima y suele llevar a comportamientos
-          compulsivos y conflictos con familia y amigos.
-        </p>
-        <p>
-          · La Elección Inteligente: Pregúntate: ¿realmente necesito una
-          sustancia para divertirme o conectar con los demás? La energía real
-          viene del descanso, la buena alimentación y hacer cosas que te
-          apasionen.
-        </p>
-
-        <img
-          src="static/image/cocaina.jpeg"
-          alt="Descripción de la imagen"
-          class="imagen-modal"
-        />
-      </div>
-    </template>
-
-    <template id="modalGeneralnicotina">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Nicotina</h2>
-        <p>Nicotina (Vapeadores): El Gusano en la Manzana 🍎</p>
-
-        <p>
-          · La Verdad Sin Filtros: Los vapeadores no son "vapor de agua".
-          Contienen nicotina, una de las sustancias más adictivas que existen,
-          además de sustancias químicas dañinas para tus pulmones.
-        </p>
-        <p>· El Impacto en Tu Cuerpo:</p>
-        <p>
-          · Cerebro: La nicotina altera el desarrollo de los circuitos
-          cerebrales que controlan la atención y el aprendizaje.
-        </p>
-        <p>
-          · Pulmones: Puede causar daño pulmonar (conocido como "pulmón de
-          palomitas de maíz").
-        </p>
-        <p>
-          · Bolsillo: Es un gasto constante por una adicción que cuesta mucho
-          dejar.
-        </p>
-        <p>
-          · La Elección Inteligente: No dejes que el marketing te engañe. La
-          "nube de sabor" es una trampa de adicción. Respirar aire limpio es
-          siempre más cool.
-        </p>
-
-        <img
-          src="static/image/nicotina.jpeg"
-          alt="Descripción de la imagen"
-          class="imagen-modal"
-        />
-      </div>
-    </template>
-
-    <template id="modalGeneralalcohol">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>ALCOHOL</h2>
-        <p>Alcohol: El Desinhibidor Peligroso 🍺</p>
-
-        <p>
-          · La Verdad Sin Filtros: Es la droga más normalizada, pero eso no la
-          hace segura. Afecta tu juicio desde el primer trago.
-        </p>
-        <p>· El Impacto en Ti:</p>
-        <p>
-          · Decisiones: Bajo sus efectos, es más probable que hagas cosas de las
-          que te arrepientas: tener sexo sin protección, subir fotos/videos
-          comprometedores, conducir ebrio o sufrir accidentes.
-        </p>
-        <p>· Cerebro: Mata neuronas y afecta la memoria a largo plazo.</p>
-        <p>· Salud Mental: Empeora la ansiedad y la depresión a largo plazo.</p>
-        <p>· La Elección Inteligente:</p>
-        <p>
-          · Si bebes, hazlo con gente de confianza, come antes y durante,
-          alterna con agua y NUNCA manejes. Designa a un conductor sobrio.
-        </p>
-        <p>
-          · La mejor opción: disfrutar de un buen momento sin necesidad de
-          alcohol es un superpoder.
-        </p>
-
-        <img
-          src="static/image/alcohol.jpeg"
-          alt="Descripción de la imagen"
-          class="imagen-modal"
-        />
-      </div>
-    </template>
-
-    <template id="modalGeneralxanax">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Xanax</h2>
-        <p>
-          Xanax (Alprazolam): La Pastilla para "Desconectar" que Enciende una
-          Trampa 💊
-        </p>
-
-        <p>
-          · La Verdad Sin Filtros: Es un medicamento para la ansiedad severa.
-          Usarlo sin receta médica es como usar una bazuca para matar un
-          mosquito.
-        </p>
-        <p>· El Impacto en Tu Mente:</p>
-        <p>
-          · Adicción Física: Tu cuerpo se acostumbra rápidamente. Si dejas de
-          tomarlo, sufrirás un síndrome de abstinencia que puede ser mortal, con
-          ansiedad extrema, insomnio y convulsiones.
-        </p>
-        <p>
-          · Efectos: Te quita toda la motivación, te deja como un "zombi" y
-          nubla tu memoria.
-        </p>
-        <p>
-          · Combinación Mortal: Mezclarlo con alcohol es una de las
-          combinaciones más peligrosas. Deprime tanto tu sistema respiratorio
-          que puedes dejar de respirar y morir.
-        </p>
-        <p>
-          · La Elección Inteligente: Si sientes que la ansiedad te supera, habla
-          con un adulto de confianza o un profesional de la salud. Ellos te
-          pueden dar herramientas seguras y efectivas para manejarla. La
-          automedicación es un juego ruso.
-        </p>
-
-        <img src="static/image/xanax.jpeg" class="imagen-modal" />
-      </div>
-    </template>
-
-    <template id="modalGeneralmarihuana">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Marihuana</h2>
-        <p>
-          La marihuana es una planta conocida por sus efectos psicoactivos
-          debido al tetrahidrocannabinol (THC). Se utiliza tanto con fines
-          recreativos como medicinales para aliviar el dolor, la ansiedad y las
-          náuseas.
-        </p>
-        <p>
-          Su consumo puede causar relajación, euforia o alteraciones en la
-          percepción del tiempo. Sin embargo, también puede generar dependencia
-          y afectar la memoria o la coordinación motora.
-        </p>
-        <p>
-          En varios países, su uso médico ha sido legalizado bajo control,
-          mientras que el consumo recreativo sigue siendo un tema de debate
-          social y legal.
-        </p>
-
-        <img src="static/image/marihuana.jpg" class="imagen-modal" />
-      </div>
-    </template>
-
-    <template id="modalGeneralopioides">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Opioides</h2>
-        <p>
-          Los opioides son sustancias que actúan sobre el sistema nervioso para
-          reducir el dolor. Incluyen medicamentos como la morfina, la oxicodona
-          y la codeína, además de drogas ilegales como la heroína.
-        </p>
-
-        <p>
-          Se usan médicamente para tratar dolores intensos, pero su uso indebido
-          puede causar dependencia, sobredosis y problemas respiratorios graves.
-        </p>
-
-        <p>
-          La crisis de opioides en varios países ha generado un aumento en las
-          muertes por sobredosis y ha impulsado campañas para un uso más
-          responsable y tratamientos contra la adicción.
-        </p>
-        <img src="static/image/opioides.jpg" class="imagen-modal" />
-      </div>
-    </template>
-
-    <template id="modalGenerallsd">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>LSD</h2>
-        <p>
-          El LSD (dietilamida del ácido lisérgico) es una droga alucinógena que
-          altera la percepción, el pensamiento y las emociones. Se consume en
-          pequeñas dosis, generalmente en forma de papel absorbente.
-        </p>
-
-        <p>
-          Sus efectos incluyen cambios visuales, sensación de euforia y
-          distorsión del tiempo, aunque también puede provocar ansiedad,
-          paranoia o "malos viajes".
-        </p>
-
-        <p>
-          Aunque no se considera físicamente adictivo, su uso frecuente puede
-          causar tolerancia y afectar la salud mental de forma prolongada.
-        </p>
-
-        <img src="static/image/lsd.jpg" class="imagen-modal" />
-      </div>
-    </template>
-
-    <template id="modalGeneralcrack">
-      <div class="modal-body">
-        <button class="cerrar-btn" onclick="cerrarModalGeneral()">×</button>
-        <h2>Crack</h2>
-
-        <p>
-          El crack es una forma cristalizada de la cocaína que se fuma y produce
-          un efecto intenso y rápido en el cerebro. Es altamente adictivo debido
-          a la rapidez con la que genera placer y euforia.
-        </p>
-
-        <p>
-          Sus efectos incluyen aumento de energía, euforia y disminución del
-          apetito, pero también provoca ansiedad, paranoia y agresividad.
-        </p>
-
-        <p>
-          El consumo frecuente de crack puede causar graves daños físicos y
-          mentales, incluyendo problemas cardíacos, respiratorios y deterioro
-          cognitivo.
-        </p>
-
-        <img src="static/image/crack.jpg" class="imagen-modal" />
-      </div>
-    </template>
-
-    <div class="contenedor-principal">
-      <!-- Información a la izquierda -->
-      <div class="contenedor-presentacion">
-        <h1>Aprende sobre drogas</h1>
-        <h2>
-          Es importante aprender sobre las drogas porque nos ayuda a entender
-          sus efectos en el cuerpo y la mente,
-        </h2>
-        <h2>
-          permitiéndonos tomar decisiones informadas. Conocer sus riesgos y
-          consecuencias puede prevenir
-        </h2>
-        <h2>
-          adicciones y problemas de salud. Además, la educación sobre drogas
-          fomenta el autocuidado y la
-        </h2>
-        <h2>
-          responsabilidad personal. También nos prepara para identificar y
-          evitar situaciones de riesgo. Aprender sobre
-        </h2>
-        <h2>
-          este tema promueve una sociedad más consciente y saludable.
-          Finalmente, permite apoyar a quienes
-        </h2>
-        <h2>enfrentan problemas de consumo con empatía y conocimiento.</h2>
-      </div>
-      <br />
-      <!-- Imágenes y botones a la derecha -->
-      <div class="contenedor-imagenes-botones">
-        <div class="imagenes-frasco">
-          <img src="static/image/frasco.png" alt="Frasco" class="img-frasco" />
-          <img src="static/image/mota.png" alt="Mota" class="img-frasco" />
-          <img
-            src="static/image/jeringa.png"
-            alt="Jeringa"
-            class="img-frasco"
-          />
-        </div>
-
-        <div class="contenedor-botones">
-          <button onclick="abrirModalfentanilo(); return false;">
-            FENTANILO
-          </button>
-          <button onclick="abrirModalcannabis(); return false;">
-            CANNABIS
-          </button>
-          <button onclick="abrirModalcocaina(); return false;">COCAINA</button>
-          <button onclick="abrirModalnicotina(); return false;">
-            NICOTINA
-          </button>
-          <button onclick="abrirModalalcohol(); return false;">ALCOHOL</button>
-          <button onclick="abrirModalxanax(); return false;">XANAX</button>
-          <button onclick="abrirModalmarihuana(); return false;">
-            MARIHUANA
-          </button>
-          <button onclick="abrirModalopioides(); return false;">
-            OPIOIDES
-          </button>
-          <button onclick="abrirModallsd(); return false;">LSD</button>
-          <button onclick="abrirModalcrack(); return false;">CRACK</button>
-        </div>
+      <div class="contenedor-botones">
+        <button onclick="abrirModalfentanilo(); return false;">
+          FENTANILO
+        </button>
+        <button onclick="abrirModalcannabis(); return false;">
+          CANNABIS
+        </button>
+        <button onclick="abrirModalcocaina(); return false;">COCAINA</button>
+        <button onclick="abrirModalnicotina(); return false;">
+          NICOTINA
+        </button>
+        <button onclick="abrirModalalcohol(); return false;">ALCOHOL</button>
+        <button onclick="abrirModalxanax(); return false;">XANAX</button>
+        <button onclick="abrirModalmarihuana(); return false;">
+          MARIHUANA
+        </button>
+        <button onclick="abrirModalopioides(); return false;">
+          OPIOIDES
+        </button>
+        <button onclick="abrirModallsd(); return false;">LSD</button>
+        <button onclick="abrirModalcrack(); return false;">CRACK</button>
       </div>
     </div>
+  </div>
 
-    <!-- Scripts del frontend -->
-    <script src="static/js/funcionality.js"></script>
-    <script src="chatbot.js" type="module"></script>
-  </body>
-  <br />
-  <br />
-  <footer>
-    <div class="footer-content">
-      <span
-        >© 2025 Tienda promocional digital OxyMarket propiedad de Erizo's
-        Company S.A de C.V.</span
-      >
-      <div class="footer-icons">
-        <a
-          href="https://x.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-        >
-          <img src="static/image/x.png" alt="X" />
-        </a>
-        <a
-          href="https://www.facebook.com/share/19oMawFTn4/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-        >
-          <img src="static/image/facebook.png" alt="Facebook" />
-        </a>
-        <a
-          href="https://www.instagram.com/jesxz_opyi12?igsh=MWxka2U2ZG1td3prZA=="
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-        >
-          <img src="static/image/instagram.png" alt="Instagram" />
-        </a>
-      </div>
+  <!-- Scripts del frontend -->
+  <script src="static/js/funcionality.js"></script>
+  <!-- chatbot.js eliminado -->
+</body>
+<br />
+<br />
+<footer>
+  <div class="footer-content">
+    <span>© 2025 Tienda promocional digital OxyMarket propiedad de Erizo's
+      Company S.A de C.V.</span>
+    <div class="footer-icons">
+      <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <img src="static/image/x.png" alt="X" />
+      </a>
+      <a href="https://www.facebook.com/share/19oMawFTn4/" target="_blank" rel="noopener noreferrer"
+        class="footer-link">
+        <img src="static/image/facebook.png" alt="Facebook" />
+      </a>
+      <a href="https://www.instagram.com/jesxz_opyi12?igsh=MWxka2U2ZG1td3prZA==" target="_blank"
+        rel="noopener noreferrer" class="footer-link">
+        <img src="static/image/instagram.png" alt="Instagram" />
+      </a>
     </div>
-  </footer>
+  </div>
+</footer>
+
 </html>
